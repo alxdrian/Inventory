@@ -21,4 +21,7 @@ export class CreateProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  saveProduct() {
+    console.log(this.productForm);
+  }
 }
