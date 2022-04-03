@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Product } from 'src/app/shared/models/product';
 
 @Component({
   selector: 'app-create-product',
@@ -9,12 +11,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CreateProductComponent implements OnInit {
   productForm: FormGroup;
 
-  constructor(private fb:FormBuilder) { 
+  constructor(
+    private fb:FormBuilder,
+    private router:Router
+    ) { 
     this.productForm = this.fb.group({
       name: ['', Validators.required],
       category: ['', Validators.required],
       location: ['', Validators.required],
-      price: [0, Validators.required]
+      price: ['', Validators.required]
     });
   }
 
@@ -22,6 +27,14 @@ export class CreateProductComponent implements OnInit {
   }
 
   saveProduct() {
-    console.log(this.productForm);
+    const PRODUCT: Product = {
+      name: this.productForm.get('name')?.value,
+      category: this.productForm.get('category')?.value,
+      location: this.productForm.get('location')?.value,
+      price: this.productForm.get('price')?.value
+    };
+
+    console.log(PRODUCT);
+    this.router.navigate(['/products']);
   }
 }

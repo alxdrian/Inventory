@@ -10,10 +10,15 @@
                             <input
                                 formControlName="name"
                                 type="text"
-                                class="form-control" 
+                                class="form-control"
                                 placeholder="Laptop"
                                 id="name"
                             >
+                            <div class="text-danger" *ngIf="productForm.get('name')?.hasError('required') && productForm.get('name')?.touched" >
+                                <span>
+                                    Name is required
+                                </span>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="name" class="form-label">Category</label>
@@ -24,6 +29,11 @@
                                 placeholder="Tech"
                                 id="category"
                             >
+                            <div class="text-danger" *ngIf="productForm.get('category')?.hasError('required') && productForm.get('category')?.touched" >
+                                <span>
+                                    Category is required
+                                </span>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="location" class="form-label">Location</label>
@@ -34,6 +44,11 @@
                                 id="location"
                                 placeholder="Lima"
                             >
+                            <div class="text-danger" *ngIf="productForm.get('location')?.hasError('required') && productForm.get('location')?.touched" >
+                                <span>
+                                    Location is required
+                                </span>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="price" class="form-label">Price</label>
@@ -44,10 +59,15 @@
                                 id="price"
                                 placeholder="100"
                             >
+                            <div class="text-danger" *ngIf="productForm.get('price')?.hasError('required') && productForm.get('price')?.touched" >
+                                <span>
+                                    Price is required
+                                </span>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <button class="btn btn-secondary float-start" routerLink="/products">BACK</button>
-                            <button type="submit" class="btn btn-success float-end">SAVE</button>
+                            <button type="submit" [disabled]="productForm.invalid" class="btn btn-success float-end">SAVE</button>
                         </div>
                     </form>
                 </div>
