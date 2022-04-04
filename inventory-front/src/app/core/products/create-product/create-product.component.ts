@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/shared/models/product';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-product',
@@ -13,7 +14,9 @@ export class CreateProductComponent implements OnInit {
 
   constructor(
     private fb:FormBuilder,
-    private router:Router
+    private router:Router,
+    private toastr: ToastrService,
+
     ) { 
     this.productForm = this.fb.group({
       name: ['', Validators.required],
@@ -35,6 +38,7 @@ export class CreateProductComponent implements OnInit {
     };
 
     console.log(PRODUCT);
+    this.toastr.success('The product was successfully registered!', 'Registered product!')
     this.router.navigate(['/products']);
   }
 }
