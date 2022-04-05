@@ -1,8 +1,13 @@
 const express = require('express');
+const connectDB = require('./config/db');
 
 // Create a new express application instance
 
 const app = express();
+
+// Connect to MongoDB
+
+connectDB();
 
 // Define main route
 
