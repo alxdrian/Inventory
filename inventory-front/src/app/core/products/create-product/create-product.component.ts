@@ -23,6 +23,7 @@ export class CreateProductComponent implements OnInit {
       category: ['', Validators.required],
       location: ['', Validators.required],
       price: ['', Validators.required],
+      quantity: ['', Validators.required],
     });
   }
 
@@ -34,7 +35,8 @@ export class CreateProductComponent implements OnInit {
       name: this.productForm.get('name')?.value,
       category: this.productForm.get('category')?.value,
       location: this.productForm.get('location')?.value,
-      price: this.productForm.get('price')?.value
+      price: this.productForm.get('price')?.value,
+      quantity: this.productForm.get('quantity')?.value,
     };
 
     console.log(PRODUCT);

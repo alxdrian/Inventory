@@ -66,6 +66,21 @@
                             </div>
                         </div>
                         <div class="mb-3">
+                            <label for="quantity" class="form-label">Quantity</label>
+                            <input
+                                formControlName="quantity"
+                                type="number"
+                                class="form-control"
+                                id="quantity"
+                                placeholder="100"
+                            >
+                            <div class="text-danger" *ngIf="productForm.get('quantity')?.hasError('required') && productForm.get('quantity')?.touched" >
+                                <span>
+                                    Quantity is required
+                                </span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
                             <button class="btn btn-secondary float-start" routerLink="/products">BACK</button>
                             <button type="submit" [disabled]="productForm.invalid" class="btn btn-success float-end">SAVE</button>
                         </div>
