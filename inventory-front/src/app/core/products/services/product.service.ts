@@ -24,4 +24,12 @@ export class ProductService {
   saveProduct(product: Product):Observable<any> {
     return this.http.post(this.url, product);
   }
+
+  getProductById(id: string):Observable<any> {
+    return this.http.get(this.url + id);
+  }
+
+  updateProduct(id: string, product: Product):Observable<any> {
+    return this.http.put(this.url + id, product);
+  }
 }

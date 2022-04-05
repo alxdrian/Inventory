@@ -24,7 +24,7 @@
                                 <td>{{ product.price | currency: 'USD' }}</td>
                                 <td>{{ product.quantity }}</td>
                                 <td>
-                                    <i class="fa-solid fa-pen-to-square text-primary"></i>
+                                    <i [routerLink]="['/products', product._id, 'edit']" class="fa-solid fa-pen-to-square text-primary"></i>
                                     <i (click)="deleteProduct(product._id)" class="fa-solid fa-trash text-secondary"></i>
                                 </td>
                             </tr>
