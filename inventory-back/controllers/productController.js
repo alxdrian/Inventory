@@ -77,3 +77,21 @@ exports.getProductById = async (req, res) => {
     res.status(500).json.send('Server Error');
   }
 }
+
+exports.deleteProduct = async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+
+    if (!product) {
+      return res.status(404).json({
+        msg: 'Product not found'
+      });
+    }
+
+    await Product.findOneAndRemove({_id: req.params.id});
+    res.json({msg: 'Product deleted'});
+  } catch (err) {
+    console.log(err);
+    res.status(500).json.send('Server Error');
+  }
+}
