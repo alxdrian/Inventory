@@ -13,8 +13,8 @@ export class CreateProductComponent implements OnInit {
   productForm: FormGroup;
 
   constructor(
-    private fb:FormBuilder,
-    private router:Router,
+    private fb: FormBuilder,
+    private router: Router,
     private toastr: ToastrService,
 
     ) { 
@@ -22,7 +22,7 @@ export class CreateProductComponent implements OnInit {
       name: ['', Validators.required],
       category: ['', Validators.required],
       location: ['', Validators.required],
-      price: ['', Validators.required]
+      price: ['', Validators.required],
     });
   }
 
