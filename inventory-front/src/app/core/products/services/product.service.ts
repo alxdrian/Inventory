@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Product } from '../../../shared/models/product';
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +19,9 @@ export class ProductService {
 
   deleteProduct(id: string):Observable<any> {
     return this.http.delete(this.url + id);
+  }
+
+  saveProduct(product: Product):Observable<any> {
+    return this.http.post(this.url, product);
   }
 }
