@@ -1,5 +1,6 @@
 const express = require('express');
 const connectDB = require('./config/db');
+const cors = require('cors');
 
 // Create a new express application instance
 
@@ -8,6 +9,8 @@ const app = express();
 // Connect to MongoDB
 
 connectDB();
+
+app.use(cors());
 
 app.use(express.json());
 
